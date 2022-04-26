@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { userActions } from '../../redux/reducers/userReducer.ts';
+import { userActions } from '../../store/reducers/user';
+import tableStyles from '../../styles/Table.module.css'
 
 export default function Logout(){
     const dispatch = useDispatch()

@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 import { useDispatch } from 'react-redux';
-import { userActions } from '../../redux/reducers/userReducer.ts';
+import { userActions } from '../../store/reducers/user';
 import tableStyles from "@/styles/Table.module.css"
+import { addUser } from '@/store/actions/user';
 
 export default function  Join(){
     const [user, setUser] =useState({
@@ -19,7 +20,7 @@ export default function  Join(){
     return <form onSubmit={
         e => {
             e.preventDefault()
-            dispatch(userActions.joinRequest(user))
+            dispatch(addUser(user))
             setUser({
                 userid:'', password:'', email:'', name:'', phone:'', birth:'', address:''
             })

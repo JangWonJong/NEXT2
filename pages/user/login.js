@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 import { useDispatch } from 'react-redux';
-import { userActions } from '../../redux/reducers/userReducer.ts';
+import { userActions } from '../../store/reducers/user';
 import tableStyles from "@/styles/Table.module.css"
+import { addUser, fetchUsers } from '@/store/actions/user';
 
 export default function  Login(){
     const [login, setLogin] =useState({
@@ -16,7 +17,7 @@ export default function  Login(){
     return <form onSubmit={
         e => {
             e.preventDefault()
-            dispatch(userActions.loginRequest(login))
+            dispatch(addUser(login))
             setLogin({
                 userid:'', password:''
             })

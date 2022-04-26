@@ -24,7 +24,7 @@ const HomeIcon = createSvgIcon(
   'Home',
 );
 
-const pages = ['counter', 'calc', 'bmi', 'board'];
+const pages = ['home','counter', 'calc', 'bmi', 'board'];
 const preSettings = ['회원가입', '로그인'];
 const postSettings = ['프로필', '정보수정', '로그아웃', '회원탈퇴'];
 
@@ -47,9 +47,16 @@ export function Nav(){
   };
 
   const handleCloseUserMenu = () => {
+    switch(value){
+      case '회원가입': window.location.href='/user/join'
+      break;
+      case '로그인': window.location.href='/user/login'
+      break;
+      default: window.location.href='/'
+      break;
+    }
     setAnchorElUser(null);
   };
-
   
 
   useEffect(() => {
@@ -87,6 +94,17 @@ export function Nav(){
       break;
       case 'board': window.location.href='/board/list'
       break;
+      default: window.location.href='/'
+      break;
+    }
+  }
+  const handleAuth= (value) => { 
+    alert('handleAuth '+value)
+    switch(value){
+      case '회원가입': window.location.href='/user/join'
+      break;
+      case '로그인': window.location.href='/user/login'
+      
       default: window.location.href='/'
       break;
     }
@@ -131,12 +149,12 @@ export function Nav(){
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="https://avatars.githubusercontent.com/u/502757?v=4" />
+                <Avatar alt="Remy Sharp" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf39BMiKd0kuYH8KzUuhdpztzubgG67rmiLA&usqp=CAU" />
               </IconButton>
             </Tooltip>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleCloseUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSojHl4I5WF8e-TSzGQ-NlW5moCUMCny75Vw&usqp=CAU" />
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB-4sUqvFbHsLoWK92ykXDe6f6sSITjejcpw&usqp=CAU" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -157,7 +175,7 @@ export function Nav(){
             >
               {preSettings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography textAlign="center" onClick={()=>handleAuth(setting)}>{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>
