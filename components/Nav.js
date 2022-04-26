@@ -1,11 +1,9 @@
 import React,{useState, useEffect} from 'react'
-
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
@@ -16,7 +14,6 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import tableStyles from "@/styles/Table.module.css"
 import MenuItem from '@mui/material/MenuItem';
-//import Home from "@/components"
 import { createSvgIcon } from '@mui/material/utils';
 
 const HomeIcon = createSvgIcon(
@@ -46,14 +43,14 @@ export function Nav(){
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    switch(value){
-      case '회원가입': window.location.href='/user/join'
-      break;
-      case '로그인': window.location.href='/user/login'
-      break;
+  const handleCloseUserMenu = (value) => {
+    switch(value) {
+      case '회원가입':  window.location.href='/user/join' 
+                      break;
+      case '로그인':  window.location.href='/user/login' 
+                      break;
       default: window.location.href='/'
-      break;
+                      break;
     }
     setAnchorElUser(null);
   };
@@ -84,7 +81,6 @@ export function Nav(){
   const boardSubTitle = ["글등록","글목록","글수정","글삭제"]
   const handleClick = (value) => { 
     alert(' >>> '+value)
-    window.location.href='/basic/counter'
     switch(value){
       case 'counter': window.location.href='/basic/counter'
       break;
@@ -104,14 +100,14 @@ export function Nav(){
       case '회원가입': window.location.href='/user/join'
       break;
       case '로그인': window.location.href='/user/login'
-      
+      break;
       default: window.location.href='/'
       break;
     }
   }
 
   return (
-    <AppBar position="static" >
+    <AppBar position="static" style={{marginBottom:"70px"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -171,10 +167,10 @@ export function Nav(){
                 horizontal: 'right',
               }}
               open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
+              onClose={handleAuth}
             >
               {preSettings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting}>
                   <Typography textAlign="center" onClick={()=>handleAuth(setting)}>{setting}</Typography>
                 </MenuItem>
               ))}
