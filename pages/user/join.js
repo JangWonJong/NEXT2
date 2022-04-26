@@ -52,7 +52,7 @@ const ColorButton = styled(Button)(({theme}) => ({
     }
 }));
 
-export default function MaterialUIPickers() {
+export default function join() {
     const [value, setValue] = React.useState(new Date('2014-08-18T21:11:54'));
 
     const handleChange = (newValue) => {

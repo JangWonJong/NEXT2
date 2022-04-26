@@ -1,5 +1,5 @@
 import { HYDRATE } from "next-redux-wrapper"
-import * as T from "../types"
+import * as T from "@/store/types"
 
 const initialState = {
     users: [],
@@ -9,13 +9,29 @@ const initialState = {
 
 const userReducer = (state = initialState, action) =>{
     switch (action.type){
-        case HYDRATE:
+            case HYDRATE:
             console.log(" ### Error: Hydration failed because the initial UI does not match what was rendered on the server. ### ")
             return { ...state, ...action.payload }
-        case T.USER_ADD_SUCCESSED:
+            
+            case T.USER_ADD_REQUEST:
             return { ...state, users: [action.payload, ...state.users] }
-        default:
-            return state;
-    }
+                     
+            case T.LOGIN_SUCCESS:
+              return {
+                ...state,
+                loginLoading: false, 
+                loginSuccess: true,
+                loginError: null,
+                user: action.data
+              }
+            case T.LOGIN_FAIL:
+              return {
+                ...state,
+                loginLoading: false, 
+                loginSuccess: false,
+                loginError: action.error
+              }
+            default: return state
+          }
 }
 export default userReducer
