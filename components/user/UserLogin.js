@@ -60,7 +60,7 @@ const UserLogin = ({onSubmit, onChange, form}) => {
               name="userid"
               autoComplete="email"
               autoFocus
-              onChange={handleChange}
+              onChange={onChange}
               value = {form.userid}
             />
             <TextField
@@ -72,7 +72,7 @@ const UserLogin = ({onSubmit, onChange, form}) => {
               type="password"
               id="password"
               autoComplete="current-password"
-              onChange={handleChange}
+              onChange={onChange}
               value = {form.password}
             />
             <FormControlLabel

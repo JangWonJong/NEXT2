@@ -50,7 +50,7 @@ const UserJoin = ({ onSubmit, onchange, form }) =>{
                   id="userid"
                   label="사용자 ID"
                   autoFocus
-                  onChange={handleChange}
+                  onChange={onchange}
                   value = {form.userid}
                 />
               </Grid>
@@ -62,7 +62,7 @@ const UserJoin = ({ onSubmit, onchange, form }) =>{
                   label="이름"
                   name="name"
                   autoComplete="family-name"
-                  onChange={handleChange}
+                  onChange={onchange}
                   value = {form.name}
                 />
               </Grid>
@@ -74,7 +74,7 @@ const UserJoin = ({ onSubmit, onchange, form }) =>{
                   label="Email Address"
                   name="email"
                   autoComplete="email"
-                  onChange={handleChange}
+                  onChange={onchange}
                   value = {form.email}
                 />
               </Grid>
@@ -86,7 +86,7 @@ const UserJoin = ({ onSubmit, onchange, form }) =>{
                   label="Password"
                   type="password"
                   id="password"
-                  onChange={handleChange}
+                  onChange={onchange}
                   value = {form.password}
                 />
               </Grid>
@@ -99,7 +99,7 @@ const UserJoin = ({ onSubmit, onchange, form }) =>{
                   type="phone"
                   id="phone"
                   autoComplete="new-password"
-                  onChange={handleChange}
+                  onChange={onchange}
                   value = {form.phone}
                 />
               </Grid>
@@ -111,7 +111,7 @@ const UserJoin = ({ onSubmit, onchange, form }) =>{
                   label="생년월일"
                   type="birth"
                   id="birth"
-                  onChange={handleChange}
+                  onChange={onchange}
                   value = {form.birth}
                 />
               </Grid>
@@ -123,7 +123,7 @@ const UserJoin = ({ onSubmit, onchange, form }) =>{
                 label="주소"
                 type="adress"
                 id="adress"
-                onChange={handleChange}
+                onChange={onchange}
                 value = {form.adress}
               />
             </Grid>
@@ -144,7 +144,7 @@ const UserJoin = ({ onSubmit, onchange, form }) =>{
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="/user/login" variant="body2">
+                <Link href="/user/userLogin" variant="body2">
                   로그인 화면으로 전환
                 </Link>
               </Grid>
