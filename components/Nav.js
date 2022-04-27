@@ -67,7 +67,7 @@ export function Nav(){
     }
   }, [])
 
-  const basicUrls = ["/basic/counter","/basic/calc","/basic/bmi"]
+  const basicUrls = ["/components/basic/counter","/components/basic/calc","/components/basic/bmi"]
   const basicSubTitle = ["counter","calc","bmi"]
   // const userUrls = ["/user/join","/user/login","/user/logout","/user/profile","/user/updUser","/user/withdrawUser","user/getUsers"]
   // const userSubTitle = ["회원가입","로그인","로그아웃","프로필","회원수정","회원탈퇴","회원목록"]
@@ -82,13 +82,13 @@ export function Nav(){
   const handleClick = (value) => { 
     alert(' >>> '+value)
     switch(value){
-      case 'counter': window.location.href='/basic/counter'
+      case 'counter': window.location.href='/components/basic/counter'
       break;
-      case 'calc': window.location.href='/basic/calc'
+      case 'calc': window.location.href='/components/basic/calc'
       break;
-      case 'bmi': window.location.href='/basic/bmi'
+      case 'bmi': window.location.href='/components/basic/bmi'
       break;
-      case 'board': window.location.href='/board/list'
+      case 'board': window.location.href='/components/board/list'
       break;
       default: window.location.href='/'
       break;

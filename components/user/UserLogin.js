@@ -28,15 +28,8 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function Login() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+const UserLogin = ({onSubmit, onChange, form}) => {
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -56,16 +49,19 @@ export default function Login() {
           <Typography component="h1" variant="h5">
             LOGIN
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <form onSubmit={onSubmit}>
+          <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
+              id="userid"
+              label="User ID"
+              name="userid"
               autoComplete="email"
               autoFocus
+              onChange={handleChange}
+              value = {form.userid}
             />
             <TextField
               margin="normal"
@@ -76,6 +72,8 @@ export default function Login() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={handleChange}
+              value = {form.password}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -102,9 +100,11 @@ export default function Login() {
               </Grid>
             </Grid>
           </Box>
+          </form>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
   );
 }
+export default UserLogin
